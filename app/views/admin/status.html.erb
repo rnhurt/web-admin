@@ -1,0 +1,31 @@
+<%
+	# Get the system uptime
+	u = get_uptime
+  uptime = "#{u[:days]} day#{"s" unless u[:days] == 1} "
+	uptime += "#{u[:hours]} hour#{"s" unless u[:hours] == 1} and "
+	uptime += "#{u[:minutes]} minute#{"s" unless u[:minutes] == 1}"
+	
+	# Get the available drive space
+	mem = get_meminfo
+	partitions = get_partitioninfo
+%>
+
+<h1>Appliance Status</h1>
+
+<%= content_tag :h2, "Uptime: "  + uptime %>
+<%= content_tag :h2, "Total Memory: #{ts(mem[:total])} kb" %>
+<%= content_tag :h2, "Free Memory:  #{ts(mem[:free])} kb" %>
+
+<h2>Partition Info</h2>
+<table class="chart" width="300px">
+	<thead>
+		<th>Mount Point</th>
+		<th>Space Available</th>
+	</thead>
+<% partitions.each do |part| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<%= content_tag :td, part[:mount_point], :class => "label" %>
+			<%= content_tag :td, inline_bar_graph(part[:percentage_used], 100), :class => "data" %>
+		</tr>
+<% end %>
+</table>
