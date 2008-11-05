@@ -1,0 +1,9 @@
+== Welcome to Web-Admin
+
+Web-Admin is a small, web based server administration application that allows
+you to configure several key features.  These include the hostname, network
+configuration, and mail server settings.  It was specifically built for use in 
+KangarooBox application servers because we couldn't find anything like it on
+the market today.  WebMin almost makes the grade but it is way to large and 
+written in PHP.  :(  So we decided to write our own and put it out there for
+everyone to see.
