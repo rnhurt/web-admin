@@ -1,0 +1,50 @@
+/* Charts & Graphs	*/
+table { margin: 10px; }
+
+table tr.even {}
+table tr.odd {
+  background-color: #eee
+}
+table td.center {
+	text-align: center;
+	font-weight: bold;
+}
+
+div.progress-container {
+  border: 1px solid #333; 
+  width: 100px; 
+  margin: auto; 
+  margin-top: 2px; 
+  margin-bottom: 2px;
+  padding: 1px; 
+  background: white;
+}
+
+div.progress-container > div {
+  background-color: #ACE97C; 
+  height: 12px
+}
+table.chart {
+	border-spacing: 5px;
+	border-collapse: separate;
+	background-color: #ccc;
+}
+table.chart th {
+	border-width: 5px;
+	padding: 5px;
+	background-color: #ccc;
+	font-weight: bold;
+	-moz-border-radius: 3px;
+}
+table.chart td {
+	border-width: 0px;
+	background-color: #eee;
+	-moz-border-radius: 3px;
+}
+table.chart td.label {
+	padding-left: 5px;
+}
+table.chart td.data {
+	width: 120px;
+}
+

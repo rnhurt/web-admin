@@ -17,8 +17,7 @@
 	
 </head>
 
-<!--<body onload="Effect.Fade('flash', { duration: 3.0 });">-->
-<body>
+<body onload="Effect.Fade('flash', { duration: 3.0 });">
 
 <div class="header">
 		<%= image_tag("header.gif") %>

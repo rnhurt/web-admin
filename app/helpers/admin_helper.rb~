@@ -39,7 +39,7 @@ module AdminHelper
 			end
 		end
 		
-		return { :total => memtotal.to_i, :free => memfree.to_i }
+		return { :total => memtotal, :free => memfree }
 	end
 	
 	def get_partitioninfo

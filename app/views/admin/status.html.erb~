@@ -1,0 +1,52 @@
+<%
+	# Get the system uptime
+	u = get_uptime
+	uptime = "#{u[:days]} day#{"s" unless u[:days] == 1} "
+	uptime += "#{u[:hours]} hour#{"s" unless u[:hours] == 1} and "
+	uptime += "#{u[:minutes]} minute#{"s" unless u[:minutes] == 1}"
+	
+	# Get the available drive space
+	mem = get_meminfo
+	partitions = get_partitioninfo
+%>
+
+<div class="col1">
+
+	<%= content_tag :h3, "System Uptime", :class => "underline" %>
+	<%= content_tag :span, uptime, :class => "date" %>
+
+	<%= content_tag :h3, "Statistics", :class => "underline" %>
+	<table class="chart" width="300px">
+		<thead>
+			<th>Memory Type</th>
+			<th colspan="2">Amount Free</th>
+		</thead>
+		<tr>
+			<td class = "label">Memory</td>
+			<%= content_tag :td, (mem[:total]/mem[:free]).to_s + "%", :class => "center" %>
+			<%= content_tag :td, inline_bar_graph(mem[:total]/mem[:free], 100), :class => "data" %>
+		</tr>
+		<thead>
+			<th>Mount Point</th>
+			<th colspan="2">Free Space</th>
+		</thead>
+			<% partitions.each do |part| %>
+					<tr class="<%= cycle('even', 'odd') %>">
+						<%= content_tag :td, part[:mount_point], :class => "label" %>
+						<%= content_tag :td, part[:percentage_used].to_s + "%", :class => "center"%>
+						<%= content_tag :td, inline_bar_graph(part[:percentage_used], 100), :class => "data" %>
+					</tr>
+			<% end %>
+	</table>
+</div>
+
+<div class="col2">
+	<h2>Appliance Status</h2>
+
+	<p>This page contains information on the overal status of the appliance</p>
+	
+	<h2>Uptime</h2>
+
+	<p>This is the lenght of time since the appliance was last turned on or
+	rebooted for system updates.</p>
+</div>

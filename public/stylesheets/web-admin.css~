@@ -29,3 +29,7 @@ body {
 
 .left { float: left; }
 .right { float: right; }
+
+flash {
+	border: 2px dashed red;
+}

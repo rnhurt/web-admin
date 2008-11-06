@@ -13,7 +13,7 @@
 	margin: 0;
 	padding: 0;
 	background: #000000 url(/images/bg-bubplastic.gif) top left repeat-x;
-	font-size: 1.2em;
+	font-size: 1.6em;
 }
 .bubplastic.horizontal ul {
 	list-style: none;
