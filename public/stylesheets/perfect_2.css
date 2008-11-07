@@ -108,8 +108,14 @@ img {
 #header ul li a span {
 	display:block;
 }
-.header {
-	border-bottom: 1px solid #ddd;
+.welcome {
+	position: absolute;
+	top: 15px;
+	right: 163px;
+	width: 200px;
+	color: #fff;
+	text-align: right;
+	font-weight: bolder;
 }
 
 /* 'widths' sub menu */

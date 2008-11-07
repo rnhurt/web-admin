@@ -21,23 +21,31 @@
 <body>
 
 <div class="header">
-		<%= image_tag("header.gif") %>
-		
-		<div class="menu bubplastic horizontal gray">
-		<% unless admin? %>
-			<%= generate_navigation [
-				{ :text => 'Status',	:url => { :action => 'index' } },] %>
+	<%= image_tag("header.gif") %>
+	
+	<div class="welcome">
+		<% unless session[:is_valid] %>
+			Log In
 		<% else %>
-			<%= generate_navigation [
-				{ :text => 'Status',	:url => { :action => 'index' } },
-				{ :text => 'User',		:url => { :action => 'user' } },
-				{ :text => 'Network',	:url => { :action => 'network' } },
-				{ :text => 'Date / Time',	:url => { :action => 'datetime' } },
-				{ :text => 'Email',		:url => { :action => 'email' } },] %>
+			User: admin
 		<% end %>
+	</div>
+	
+	<div class="menu bubplastic horizontal gray">
+	<% unless admin? %>
+		<%= generate_navigation [
+			{ :text => 'Status',	:url => { :action => 'index' } },] %>
+	<% else %>
+		<%= generate_navigation [
+			{ :text => 'Status',	:url => { :action => 'index' } },
+			{ :text => 'User',		:url => { :action => 'user' } },
+			{ :text => 'Network',	:url => { :action => 'network' } },
+			{ :text => 'Date / Time',	:url => { :action => 'datetime' } },
+			{ :text => 'Email',		:url => { :action => 'email' } },] %>
+	<% end %>
 
-			<br class="clearit" />
-		</div>
+		<br class="clearit" />
+	</div>
 </div>
 	
 <div class="colmask rightmenu">
