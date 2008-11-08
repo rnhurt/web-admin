@@ -25,9 +25,10 @@
 	
 	<div class="welcome">
 		<% unless session[:is_valid] %>
-			Log In
+			<p><%= link_to "Log In", :controller => "sessions", :action => "new" %></p>
 		<% else %>
-			User: admin
+			<p><%= link_to "Log Out", :controller => "sessions", :action => "destroy" %></p>
+			<p>User: <%= session[:user_name] %></p>
 		<% end %>
 	</div>
 	

@@ -12,26 +12,31 @@ body {
 	font-size:90%;
 }
 div.flash {
-	margin: auto;
+	margin: 3px;
 	text-align: center;
-	width: 40%;
-	border: 5px solid #ccc;
-	padding: 5px;
-	font-weight: bold;
-	color: white;
+	padding: 1px;
+/*	font-weight: bold;*/
+	font-size: small;
+	color: #333;
 }
 div.message {
-	color: black;
+	border: 1px solid #00f;
+	background: #7A7AFF;
+	color: #eee;
 }
 div.notice {
-	background: green;
+	border: 1px solid #0f0;
+	color: #333;
+	background: #7AFF7A;
 }
 div.error {
-	background: red;
+	border: 1px solid #f00;
+	color: #333;
+	background: #FF7A7A;
 }
 div.warning {
-	color: black;
-	background: yellow;
+	border: 1px solid #ff0;
+	background: #FFFF7A;
 }
 a {
 	color:#369;
@@ -116,6 +121,16 @@ img {
 	color: #fff;
 	text-align: right;
 	font-weight: bolder;
+}
+.welcome p {
+	color: #fff;
+	margin: 0px;
+	padding: 0px;
+}
+.welcome a {
+	color: #fff;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* 'widths' sub menu */

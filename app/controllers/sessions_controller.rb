@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
 	def create
 		session[:password] = params[:password]
 		if admin?

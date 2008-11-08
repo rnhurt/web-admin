@@ -32,8 +32,13 @@ class ApplicationController < ActionController::Base
 	end
 	
 	def admin?
+		# Only check the password if we need to
+		return true if logged_in?
+		
+		puts "*** Reading password file..."
 		if session[:password] == "foobar"
 			session[:is_valid] = true
+			session[:user_name] = "Admin"
 		end
 	end
   
