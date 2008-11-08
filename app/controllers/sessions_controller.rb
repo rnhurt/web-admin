@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 	def create
 		session[:password] = params[:password]
-		if admin?
+		if logged_in?
 			flash[:notice] = 'Successfully logged in'
 			redirect_to home_path
 		else

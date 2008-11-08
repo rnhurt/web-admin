@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '28074249078add0da56d557754ab3fa5'
 
-	helper_method	:admin?, :logged_in?, :flash_helper
+	helper_method	:logged_in?, :flash_helper
 
 	def flash_helper
 
@@ -24,16 +24,15 @@ class ApplicationController < ActionController::Base
 	protected
 	
 	def authorize
-		unless admin?
+		unless logged_in?
 			flash[:error] = "Unauthorized access"
 			redirect_to home_path
 			false
 		end
 	end
 	
-	def admin?
-		# Only check the password if we need to
-		return true if logged_in?
+	def logged_in?
+		return true if session[:is_valid]
 		
 		puts "*** Reading password file..."
 		if session[:password] == "foobar"
@@ -41,8 +40,4 @@ class ApplicationController < ActionController::Base
 			session[:user_name] = "Admin"
 		end
 	end
-  
-  def logged_in?
-  	session[:is_valid]
-	end  
 end

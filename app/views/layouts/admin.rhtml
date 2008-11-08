@@ -24,7 +24,7 @@
 	<%= image_tag("header.gif") %>
 	
 	<div class="welcome">
-		<% unless session[:is_valid] %>
+		<% unless logged_in? %>
 			<p><%= link_to "Log In", :controller => "sessions", :action => "new" %></p>
 		<% else %>
 			<p><%= link_to "Log Out", :controller => "sessions", :action => "destroy" %></p>
@@ -33,7 +33,7 @@
 	</div>
 	
 	<div class="menu bubplastic horizontal gray">
-	<% unless admin? %>
+	<% unless logged_in? %>
 		<%= generate_navigation [
 			{ :text => 'Status',	:url => { :action => 'index' } },] %>
 	<% else %>
