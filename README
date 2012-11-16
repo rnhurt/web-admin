@@ -1,5 +1,7 @@
 == Welcome to Web-Admin
 
+http://stillmaintained.com/rnhurt/web-admin.png
+
 Web-Admin is a small, web based server administration application that allows
 you to configure several key features.  These include the hostname, network
 configuration, and mail server settings.  It was specifically built for use in 
